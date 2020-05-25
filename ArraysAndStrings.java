@@ -17,13 +17,94 @@ public class ArraysAndStrings{
 //        System.out.println(urlify("nicrockwood .com", 15));
 //        System.out.println(urlify("www.google.com", 14));
 
-        System.out.println(palindromePerm("Tact Coa"));
-        System.out.println(palindromePerm("abcdsef"));
-        System.out.println(palindromePerm("ababa"));
-        System.out.println(palindromePerm("ababac"));
-        System.out.println(palindromePerm("acb bca"));
+//        System.out.println(palindromePerm("Tact Coa"));
+//        System.out.println(palindromePerm("abcdsef"));
+//        System.out.println(palindromePerm("ababa"));
+//        System.out.println(palindromePerm("ababac"));
+//        System.out.println(palindromePerm("acb bca"));
 
+//        System.out.println(countEditNumber("pale", "ple"));
+//        System.out.println(countEditNumber("pales", "pale"));
+//        System.out.println(countEditNumber("pale", "bale"));
+//        System.out.println(countEditNumber("pale", "bake"));
+//        System.out.println(countEditNumber("p", "pale"));
 
+//        System.out.println(compressString("aabccccaa"));
+//        System.out.println(compressString("b"));
+//        System.out.println(compressString("abcdefg"));
+//        System.out.println(compressString("fffffffffff"));
+
+    }
+
+    public static String compressString(String word){
+
+        StringBuilder compressedWord = new StringBuilder();
+        HashMap<Character, Integer> letters = new HashMap<Character, Integer>();
+
+        for(int i = 0; i < word.length(); i++){
+            if(!letters.containsKey(word.charAt(i))){
+                letters.put(word.charAt(i), 1);
+            } else if(letters.containsKey(word.charAt(i))){
+                letters.put(word.charAt(i), letters.get(word.charAt(i)) + 1);
+            }
+        }
+
+        Set<Map.Entry<Character, Integer>> entries = letters.entrySet();
+
+        for(Map.Entry<Character, Integer> entry : entries){
+            compressedWord.append(entry.getKey());
+            compressedWord.append(entry.getValue().toString());
+        }
+
+        return compressedWord.toString();
+    }
+
+    public static boolean countEditNumber(String word1, String word2){
+
+        if(word1.equals(word2)){
+            return true;
+        }
+
+        if(charCountCheck(word1, word2) && characterDiffCountCheck(word1,word2)){
+                return true;
+        }
+
+        return false;
+
+    }
+
+    public static boolean charCountCheck(String word1, String word2){
+        if(Math.abs(word1.length() - word2.length()) > 1){
+            return false;
+        }
+
+        return true;
+    }
+
+    public static boolean characterDiffCountCheck(String word1, String word2){
+
+        Hashtable<Character, Integer> letters = new Hashtable<Character, Integer>();
+        int count = 0;
+
+        for(int i = 0; i < word1.length(); i++){
+            if(!letters.containsKey(word1.charAt(i))){
+                letters.put(word1.charAt(i), 1);
+            } else if(letters.containsKey(word1.charAt(i))) {
+                letters.put(word1.charAt(i), letters.get(word1.charAt(i)) + 1);
+            }
+        }
+
+        for(int i = 0; i < word2.length(); i++){
+            if(!letters.containsKey(word2.charAt(i))){
+                count++;
+            }
+        }
+
+        if(count > 1){
+            return false;
+        }
+
+        return true;
     }
 
     public static boolean palindromePerm(String word){
