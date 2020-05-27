@@ -34,6 +34,46 @@ public class ArraysAndStrings{
 //        System.out.println(compressString("abcdefg"));
 //        System.out.println(compressString("fffffffffff"));
 
+        int[][] image = { {1, 2, 3}, {4, 5, 6}, {7, 8, 9} };
+        printImage(image);
+        System.out.println();
+        rotateImage(image);
+
+    }
+
+    public static void rotateImage(int[][] array){
+
+        int temp = 0;
+
+        for(int row = 0; row < array.length; row++){
+            for(int col = 0; col < array[row].length; col++){
+                temp = array[row][col];
+                array[row][col] = array[row][array[row].length - 1];
+                array[row][array[row].length- 1] = temp;
+            }
+        }
+
+        for(int row = 0; row < array.length; row++){
+            for(int col = 0; col < array[row].length; col++){
+                temp = array[row][col];
+                array[row][col] = array[col][row];
+                array[col][row] = temp;
+            }
+        }
+
+        printImage(array);
+
+    }
+
+    public static void printImage(int[][] array){
+
+        for(int row = 0; row < array.length; row++){
+            for(int col = 0; col < array[row].length; col++){
+                System.out.print(array[row][col] + " ");
+            }
+            System.out.println();
+        }
+
     }
 
     public static String compressString(String word){
