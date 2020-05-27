@@ -34,10 +34,39 @@ public class ArraysAndStrings{
 //        System.out.println(compressString("abcdefg"));
 //        System.out.println(compressString("fffffffffff"));
 
-        int[][] image = { {1, 2, 3}, {4, 5, 6}, {7, 8, 9} };
-        printImage(image);
-        System.out.println();
-        rotateImage(image);
+//        int[][] image = { {1, 2, 3}, {4, 5, 6}, {7, 8, 9} };
+//        printImage(image);
+//        System.out.println();
+//        rotateImage(image);
+
+        int[][] zeroArray = { {1, 2, 3}, {4, 0, 6}, {7, 8, 9}};
+        isZero(zeroArray);
+        printImage(zeroArray);
+
+    }
+
+    public static void isZero(int[][] array){
+
+        for(int row = 0; row < array.length; row++){
+            for(int col = 0; col < array[row].length; col++){
+                if(array[row][col] == 0){
+                    zeroOutRowCol(array, row, col);
+                    return;
+                }
+            }
+        }
+
+    }
+
+    public static void zeroOutRowCol(int[][] array, int row, int col){
+
+        for(int zeroCol = 0; zeroCol < array[row].length; zeroCol++){
+            array[row][zeroCol] = 0;
+        }
+
+        for(int zeroRow = 0; zeroRow < array.length; zeroRow++){
+            array[zeroRow][col] = 0;
+        }
 
     }
 
