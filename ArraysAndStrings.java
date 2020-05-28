@@ -39,10 +39,41 @@ public class ArraysAndStrings{
 //        System.out.println();
 //        rotateImage(image);
 
-        int[][] zeroArray = { {1, 2, 3}, {4, 0, 6}, {7, 8, 9}};
-        isZero(zeroArray);
-        printImage(zeroArray);
+//        int[][] zeroArray = { {1, 2, 3}, {4, 0, 6}, {7, 8, 9}};
+//        isZero(zeroArray);
+//        printImage(zeroArray);
 
+        System.out.println(stringRotation("erbowatttle", "erbottlewat"));
+
+    }
+
+    public static boolean stringRotation(String word1, String word2){
+
+        int startIndex = 0, endIndex = 0;
+
+        if(word1.length() != word2.length()){
+            return false;
+        }
+
+        for(int i = 0; i < word1.length(); i++){
+            for(int j = 0; j < word2.length(); j++){
+                if(startIndex == 0 && word1.charAt(i) == word2.charAt(j)){
+                    startIndex = j;
+                } else if(startIndex != 0 && word1.charAt(i) == word2.charAt(j)){
+                    endIndex = j;
+                }
+            }
+        }
+
+        return isSubString(word1, word2, startIndex, endIndex);
+
+    }
+
+    public static boolean isSubString(String word1, String word2, int startIndex, int endIndex){
+
+        String sub = word2.substring(startIndex, endIndex);
+
+        return word1.contains(sub);
     }
 
     public static void isZero(int[][] array){
