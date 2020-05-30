@@ -45,6 +45,11 @@ public class ArraysAndStrings{
 
         System.out.println(stringRotation("erbowatttle", "erbottlewat"));
 
+        System.out.println();
+
+        int[] test = new int[10];
+        System.out.println(test.length);
+
     }
 
     public static boolean stringRotation(String word1, String word2){
