@@ -4,26 +4,40 @@ public class LinkedListProblems{
 
     public static void main(String[] args){
 
-        LinkedList<Integer> unsorted = new LinkedList<Integer>();
+//        LinkedList<Integer> unsorted = new LinkedList<Integer>();
+//
+//        unsorted.add(5);
+//        unsorted.add(10);
+//        unsorted.add(3);
+//        unsorted.add(5);
+//        unsorted.add(11);
+//        unsorted.add(10);
+//
+//        for(int i = 0; i < unsorted.size(); i++){
+//            System.out.println(unsorted.get(i));
+//        }
+//
+//        System.out.println();
+//
+//        deleteDuplicates(unsorted);
+//
+//        for(int i = 0; i < unsorted.size(); i++){
+//            System.out.println(unsorted.get(i));
+//        }
 
-        unsorted.add(5);
-        unsorted.add(10);
-        unsorted.add(3);
-        unsorted.add(5);
-        unsorted.add(11);
-        unsorted.add(10);
-
-        for(int i = 0; i < unsorted.size(); i++){
-            System.out.println(unsorted.get(i));
-        }
-
+        SingleLinkedList singleList = new SingleLinkedList();
+        singleList.insert(singleList, 1);
+        singleList.insert(singleList, 15);
+        singleList.insert(singleList, 4);
+        singleList.printList(singleList);
         System.out.println();
+        singleList.delete(singleList, 4);
+        singleList.printList(singleList);
+        System.out.println(singleList.size);
 
-        deleteDuplicates(unsorted);
 
-        for(int i = 0; i < unsorted.size(); i++){
-            System.out.println(unsorted.get(i));
-        }
+
+
 
 
     }
