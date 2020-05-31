@@ -26,20 +26,77 @@ public class LinkedListProblems{
 //        }
 
         SingleLinkedList singleList = new SingleLinkedList();
+//        singleList.insert(singleList, 1);
+//        singleList.insert(singleList, 15);
+//        singleList.insert(singleList, 4);
+//        singleList.printList(singleList);
+//        System.out.println();
+//        singleList.delete(singleList, 4);
+//        singleList.printList(singleList);
+//        System.out.println(singleList.size);
+
         singleList.insert(singleList, 1);
         singleList.insert(singleList, 15);
         singleList.insert(singleList, 4);
+        singleList.insert(singleList, 8);
+        singleList.insert(singleList, 5);
+        singleList.insert(singleList, 11);
+        singleList.insert(singleList, 10);
+        singleList.insert(singleList, 9);
+        singleList.insert(singleList, 2);
+
+//        System.out.println(singleList.size);
+//        System.out.println(kLast(singleList, 3));
+
+        deleteMiddle(singleList, 5);
         singleList.printList(singleList);
-        System.out.println();
-        singleList.delete(singleList, 4);
-        singleList.printList(singleList);
-        System.out.println(singleList.size);
 
 
+    }
 
+    public static SingleLinkedList deleteMiddle(SingleLinkedList list, int value){
 
+        SingleLinkedList tempList = list;
+        SingleLinkedList finalList = new SingleLinkedList();
 
+        while(tempList.head.next != null){
+            tempList.head = tempList.head.next;
+            if(tempList.head.data != value){
+                tempList.delete(tempList, tempList.head.data);
+            } else if(tempList.head.data == value){
+                break;
+            }
+        }
 
+        finalList.insert(finalList, list.head.data);
+
+        for(int i = 0; i < list.size - tempList.size; i++){
+            list.head = list.head.next;
+            finalList.insert(finalList, list.head.data);
+        }
+
+        for(int i = 0; i < tempList.size; i++){
+            if(tempList.head.next != null){
+                tempList.head = tempList.head.next;
+                finalList.insert(finalList, tempList.head.data);
+            } else {
+                break;
+            }
+        }
+
+        return finalList;
+
+    }
+
+    public static int kLast(SingleLinkedList list, int k){
+
+       SingleLinkedList kLast = list;
+
+        for(int i = 0; i < list.size - k; i++){
+            kLast.head = kLast.head.next;
+        }
+
+        return kLast.head.data;
     }
 
     public static void deleteDuplicates(LinkedList<Integer> list){
