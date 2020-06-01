@@ -48,41 +48,47 @@ public class LinkedListProblems{
 //        System.out.println(singleList.size);
 //        System.out.println(kLast(singleList, 3));
 
-        deleteMiddle(singleList, 5);
+        singleList = partitionList(singleList, 8);
         singleList.printList(singleList);
+
 
 
     }
 
-    public static SingleLinkedList deleteMiddle(SingleLinkedList list, int value){
+    public static SingleLinkedList partitionList(SingleLinkedList list, int k){
 
         SingleLinkedList tempList = list;
+        SingleLinkedList lessThan = new SingleLinkedList();
+        SingleLinkedList equals = new SingleLinkedList();
+        SingleLinkedList greaterThan = new SingleLinkedList();
         SingleLinkedList finalList = new SingleLinkedList();
 
-        while(tempList.head.next != null){
+        while(tempList.head != null){
+            if(tempList.head.data < k){
+                lessThan.insert(lessThan, tempList.head.data);
+            } else if(tempList.head.data == k){
+                equals.insert(equals, tempList.head.data);
+            } else if(tempList.head.data > k){
+                greaterThan.insert(greaterThan, tempList.head.data);
+            }
+
             tempList.head = tempList.head.next;
-            if(tempList.head.data != value){
-                tempList.delete(tempList, tempList.head.data);
-            } else if(tempList.head.data == value){
-                break;
-            }
         }
 
-        finalList.insert(finalList, list.head.data);
+       while(lessThan.head != null){
+           finalList.insert(finalList, lessThan.head.data);
+           lessThan.head = lessThan.head.next;
+       }
 
-        for(int i = 0; i < list.size - tempList.size; i++){
-            list.head = list.head.next;
-            finalList.insert(finalList, list.head.data);
-        }
+       while(equals.head != null){
+           finalList.insert(finalList, equals.head.data);
+           equals.head = equals.head.next;
+       }
 
-        for(int i = 0; i < tempList.size; i++){
-            if(tempList.head.next != null){
-                tempList.head = tempList.head.next;
-                finalList.insert(finalList, tempList.head.data);
-            } else {
-                break;
-            }
-        }
+       while(greaterThan.head != null){
+           finalList.insert(finalList, greaterThan.head.data);
+           greaterThan.head = greaterThan.head.next;
+       }
 
         return finalList;
 
