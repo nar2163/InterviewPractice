@@ -9,8 +9,8 @@ class Node {
 
     public class SingleLinkedList {
 
-        private Node head;
-        private int size = 0;
+        public Node head;
+        public int size = 0;
 
         public void insert(int data){
 
@@ -43,13 +43,13 @@ class Node {
             Node findNode = this.head;
             Node prevNode = new Node();
 
-            while(findNode.next != null && findNode.data != data){
+            while(findNode.next != null && findNode.next.data != data){
                 prevNode = findNode;
                 findNode = findNode.next;
             }
 
-            if(findNode.next != null && findNode.data == data){
-                findNode = findNode.next;
+            if(findNode.next.next != null && findNode.next.data == data){
+                findNode.next = findNode.next.next;
             } else if(findNode.next == null){
                 findNode = prevNode;
             }
