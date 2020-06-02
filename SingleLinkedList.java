@@ -15,16 +15,15 @@ public class SingleLinkedList{
         this.next = null;
     }
 
-    public SingleLinkedList insert(int data){
+    public void insert(int data){
 
-        SingleLinkedList insert_node = new SingleLinkedList(data);
-
-        if(this.data == null){
-            SingleLinkedList head = new SingleLinkedList(data);
+        if(this == null){
+            this.data = data;
             this.size = this.size + 1;
-            return head;
+            return;
         }
 
+        SingleLinkedList insert_node = new SingleLinkedList(data);
         SingleLinkedList findTail = this;
 
         while(findTail.next != null){
@@ -34,20 +33,24 @@ public class SingleLinkedList{
         findTail.next = insert_node;
         this.size = this.size + 1;
 
-        return this;
-
     }
 
     public void delete(int data){
 
-        if(this == null){
+        if(this.data == null){
             return;
         }
 
         SingleLinkedList findNode = this;
 
-        while(findNode.next != null && findNode.next.data != data){
+        while(findNode.next != null && findNode.data != data){
            findNode = findNode.next;
+        }
+
+        if(findNode.next != null && findNode.data == data){
+            findNode = findNode.next;
+        } else if(findNode.next == null){
+            findNode = null;
         }
 
 

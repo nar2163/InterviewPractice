@@ -84,7 +84,7 @@ public class LinkedListProblems{
 
         System.out.println();
 
-//        palTest.delete(8);
+        palTest.delete(8);
 
         palTest.printList();
     }
