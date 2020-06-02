@@ -2,73 +2,64 @@ public class SingleLinkedList{
 
     //only works with Integers!
 
-    Node head;
+    Integer data = null;
+    SingleLinkedList next = null;
     int size = 0;
 
-    static class Node{
-        int data;
-        Node next;
+    SingleLinkedList() {
 
-        Node(int data){
-            this.data = data;
-            next = null;
-        }
     }
 
-    public static SingleLinkedList insert(SingleLinkedList currentList, int data){
+    SingleLinkedList(int data){
+        this.data = data;
+        this.next = null;
+    }
 
-        Node insert_node = new Node(data);
-        insert_node.next = null;
+    public SingleLinkedList insert(int data){
 
-        if(currentList.head == null){
-            currentList.head = insert_node;
-            currentList.size = currentList.size + 1;
-            return currentList;
+        SingleLinkedList insert_node = new SingleLinkedList(data);
+
+        if(this.data == null){
+            SingleLinkedList head = new SingleLinkedList(data);
+            this.size = this.size + 1;
+            return head;
         }
 
-        Node findTail = currentList.head;
+        SingleLinkedList findTail = this;
 
         while(findTail.next != null){
             findTail = findTail.next;
         }
 
         findTail.next = insert_node;
-        currentList.size = currentList.size + 1;
+        this.size = this.size + 1;
 
-        return currentList;
+        return this;
 
     }
 
-    public static void delete(SingleLinkedList currentList, int data){
+    public void delete(int data){
 
-        if(currentList.head == null){
+        if(this == null){
             return;
         }
 
-        Node findNode = currentList.head;
+        SingleLinkedList findNode = this;
 
         while(findNode.next != null && findNode.next.data != data){
            findNode = findNode.next;
         }
 
-        if(findNode.next != null && findNode.next.data == data){
-            findNode.next = findNode.next.next;
-            currentList.size = currentList.size - 1;
-        } else if (findNode.next == null && findNode.data == data){
-            currentList.size = currentList.size - 1;
-        } else if (findNode.next == null && findNode.data != data){
-            return;
-        }
 
     }
 
-    public static void printList(SingleLinkedList currentList){
+    public void printList(){
 
-        if(currentList.head == null){
+        if(this == null){
             return;
         }
 
-        Node n = currentList.head;
+        SingleLinkedList n = this;
 
         while(n.next != null){
             System.out.println(n.data);
