@@ -1,76 +1,77 @@
-public class SingleLinkedList{
+class Node {
 
     //only works with Integers!
 
-    Integer data = null;
-    SingleLinkedList next = null;
-    int size = 0;
+    public int data;
+    public Node next;
 
-    SingleLinkedList() {
+}
 
-    }
+    public class SingleLinkedList {
 
-    SingleLinkedList(int data){
-        this.data = data;
-        this.next = null;
-    }
+        private Node head;
+        private int size = 0;
 
-    public void insert(int data){
+        public void insert(int data){
 
-        if(this == null){
-            this.data = data;
+            if(this.head == null){
+                this.head = new Node();
+                this.head.data = data;
+                this.size = this.size + 1;
+                return;
+            }
+
+            Node insert_node = new Node();
+            insert_node.data = data;
+            Node findTail = this.head;
+
+            while(findTail.next != null){
+                findTail = findTail.next;
+            }
+
+            findTail.next = insert_node;
             this.size = this.size + 1;
-            return;
+
         }
 
-        SingleLinkedList insert_node = new SingleLinkedList(data);
-        SingleLinkedList findTail = this;
+        public void delete(int data){
 
-        while(findTail.next != null){
-            findTail = findTail.next;
+            if(this.head == null){
+                return;
+            }
+
+            Node findNode = this.head;
+            Node prevNode = new Node();
+
+            while(findNode.next != null && findNode.data != data){
+                prevNode = findNode;
+                findNode = findNode.next;
+            }
+
+            if(findNode.next != null && findNode.data == data){
+                findNode = findNode.next;
+            } else if(findNode.next == null){
+                findNode = prevNode;
+            }
+
+
         }
 
-        findTail.next = insert_node;
-        this.size = this.size + 1;
+        public void printList(){
 
-    }
+            if(this == null){
+                return;
+            }
 
-    public void delete(int data){
+            Node n = this.head;
 
-        if(this.data == null){
-            return;
+            while(n.next != null){
+                System.out.println(n.data);
+                n = n.next;
+            }
+
+            if(n.next == null){
+                System.out.println(n.data);
+            }
         }
-
-        SingleLinkedList findNode = this;
-
-        while(findNode.next != null && findNode.data != data){
-           findNode = findNode.next;
-        }
-
-        if(findNode.next != null && findNode.data == data){
-            findNode = findNode.next;
-        } else if(findNode.next == null){
-            findNode = null;
-        }
-
-
-    }
-
-    public void printList(){
-
-        if(this == null){
-            return;
-        }
-
-        SingleLinkedList n = this;
-
-        while(n.next != null){
-            System.out.println(n.data);
-            n = n.next;
-        }
-
-        if(n.next == null){
-            System.out.println(n.data);
-        }
-    }
 }
