@@ -76,7 +76,7 @@ public class LinkedListProblems{
         palTest.insert(3);
         palTest.insert(4);
         palTest.insert(4);
-        palTest.insert(8);
+//        palTest.insert(8);
         palTest.insert(4);
         palTest.insert(3);
         palTest.insert(2);
@@ -84,15 +84,48 @@ public class LinkedListProblems{
 
         System.out.println();
 
-        palTest.delete(8);
-
-        palTest.printList();
+        System.out.println(isPalindrome(palTest));
     }
 
     public static boolean isPalindrome(SingleLinkedList list){
 
+        Node fast = list.head;
+        Node slow = list.head;
+
+        while(fast != null && fast.next != null){
+            fast = fast.next.next;
+            slow = slow.next;
+        }
+
+        fast = list.head;
+        slow = reverse(slow);
+
+        while(slow != null){
+            if(fast.data != slow.data){
+                return false;
+            }
+            slow = slow.next;
+            fast = fast.next;
+        }
+
         return true;
 
+    }
+
+    public static Node reverse(Node head){
+
+        Node prevNode = null;
+        Node nextNode = null;
+        Node newHead = head;
+
+        while(newHead != null){
+            nextNode = newHead.next;
+            newHead.next = prevNode;
+            prevNode = newHead;
+            newHead = nextNode;
+        }
+
+        return prevNode;
     }
 
     public static SingleLinkedList addReverseOrder(SingleLinkedList list1, SingleLinkedList list2){
