@@ -68,23 +68,25 @@ public class LinkedListProblems{
 //        System.out.println();
 //        sumNumber = addReverseOrder(firstNumber, secondNumber);
 //        sumNumber.printList(sumNumber);
+//
+//        SingleLinkedList palTest = new SingleLinkedList();
+//
+//        palTest.insert(1);
+//        palTest.insert(2);
+//        palTest.insert(3);
+//        palTest.insert(4);
+//        palTest.insert(4);
+////        palTest.insert(8);
+//        palTest.insert(4);
+//        palTest.insert(3);
+//        palTest.insert(2);
+//        palTest.insert(1);
+//
+//        System.out.println();
+//
+//        System.out.println(isPalindrome(palTest));
 
-        SingleLinkedList palTest = new SingleLinkedList();
-
-        palTest.insert(1);
-        palTest.insert(2);
-        palTest.insert(3);
-        palTest.insert(4);
-        palTest.insert(4);
-//        palTest.insert(8);
-        palTest.insert(4);
-        palTest.insert(3);
-        palTest.insert(2);
-        palTest.insert(1);
-
-        System.out.println();
-
-        System.out.println(isPalindrome(palTest));
+        System.out.println(3/2);
     }
 
     public static boolean isPalindrome(SingleLinkedList list){
