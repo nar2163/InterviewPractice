@@ -24,6 +24,22 @@ public class StacksAndQueues{
 
     }
 
+//    public void sortStack(Stack x){
+//
+//        Stack<Integer> smallStack = new Stack<>();
+//        Stack<integer> bigStack = new Stack<>();
+//        int temp;
+//
+//        while(!x.isEmpty()){
+//            temp = x.pop();
+//            if(smallStack.isEmpty() && bigStack.isEmpty()){
+//                smallStack.push(temp);
+//            } else if(smallStack.isEmpty() && !bigStack.isEmpty())
+//
+//        }
+
+    }
+
 
 
 
