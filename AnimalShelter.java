@@ -37,7 +37,7 @@ public class AnimalShelter{
 
         s.close();
 
-        if(input == 1) {
+        if(input == 1 || input == 0) {
             System.out.println("Meet the new love of your life!");
             System.out.printf("It's a %s and their name is %s\n", animal.getTypeString(), animal.getName());
         }

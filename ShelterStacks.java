@@ -15,53 +15,53 @@ public class ShelterStacks{
 
     public void dropOff(ShelterOccupants animal){
         if(animal.getTypeInt() == 1){
-            dogs.push(animal);
-            oldestAll.push(animal);
+            dogs.offer(animal);
+            oldestAll.offer(animal);
         } else {
-            cats.push(animal);
-            oldestAll.push(animal);
+            cats.offer(animal);
+            oldestAll.offer(animal);
         }
     }
 
     public ShelterOccupants adopt(int choice){
 
         LinkedList<ShelterOccupants> temp = new LinkedList<ShelterOccupants>();
-        ShelterOccupants adoptee = oldestAll.pop();
+        ShelterOccupants adoptee = oldestAll.poll();
 
         if(choice == 0){
             if(adoptee.getTypeInt() == 1){
-                dogs.pop();
+                dogs.poll();
             } else {
-                cats.pop();
+                cats.poll();
             }
 
             return adoptee;
 
         } else if(choice == 1 && adoptee.getTypeInt() == 1){
-            dogs.pop();
+            dogs.poll();
             return adoptee;
         } else if(choice == 0 && adoptee.getTypeInt() == 0){
-            cats.pop();
+            cats.poll();
             return adoptee;
         }
         else if(choice == 1 && adoptee.getTypeInt() == 0){
             while(adoptee.getTypeInt() == 0){
-                temp.push(adoptee);
-                adoptee = oldestAll.pop();
+                temp.offer(adoptee);
+                adoptee = oldestAll.poll();
             }
-            dogs.pop();
+            dogs.poll();
             while(!temp.isEmpty()){
-                oldestAll.push(temp.pop());
+                oldestAll.offer(temp.poll());
             }
             return adoptee;
         } else {
             while(adoptee.getTypeInt() == 1){
-                temp.push(adoptee);
-                adoptee = oldestAll.pop();
+                temp.offer(adoptee);
+                adoptee = oldestAll.poll();
             }
             cats.pop();
             while(!temp.isEmpty()){
-                oldestAll.push(temp.pop());
+                oldestAll.offer(temp.poll());
             }
             return adoptee;
         }
