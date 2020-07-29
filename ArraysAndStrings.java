@@ -43,13 +43,42 @@ public class ArraysAndStrings{
 //        isZero(zeroArray);
 //        printImage(zeroArray);
 
-        System.out.println(stringRotation("erbowatttle", "erbottlewat"));
+//        System.out.println(stringRotation("erbowatttle", "erbottlewat"));
+//
+//        System.out.println();
+//
+//        int[] test = new int[10];
+//        System.out.println(test.length);
 
-        System.out.println();
+        int[] unsortedNums = {1, 2, 7, 3, 8, 4, 10, 12, 11};
+        System.out.println(switchedNumbers(unsortedNums));
 
-        int[] test = new int[10];
-        System.out.println(test.length);
 
+    }
+
+    public static int switchedNumbers(int[] unsorted){
+        int[] sorted = new int[unsorted.length];
+
+        for(int i = 0; i < unsorted.length; i++){
+            sorted[i] = unsorted[i];
+        }
+
+        Arrays.sort(sorted);
+
+        int lastMoved = Integer.MAX_VALUE;
+        int j = 0, count = 0;
+
+        for(int i = 0; j < sorted.length - count; i++){
+            if(unsorted[i] != sorted[j] && unsorted[i] != lastMoved){
+                lastMoved = sorted[j];
+                count++;
+                i--;
+            }
+
+            j++;
+        }
+
+        return count;
     }
 
     public static boolean stringRotation(String word1, String word2){
