@@ -50,32 +50,49 @@ public class ArraysAndStrings{
 //        int[] test = new int[10];
 //        System.out.println(test.length);
 
-        int[] unsortedNums = {1, 2, 7, 3, 8, 4, 10, 12, 11};
+        int[] unsortedNums = {11, 1, 1, 1, 3, 4, 2};
         System.out.println(switchedNumbers(unsortedNums));
 
 
     }
 
     public static int switchedNumbers(int[] unsorted){
-        int[] sorted = new int[unsorted.length];
+//        int[] sorted = new int[unsorted.length];
+//
+//        for(int i = 0; i < unsorted.length; i++){
+//            sorted[i] = unsorted[i];
+//        }
+//
+//        Arrays.sort(sorted);
+//
+//        int lastMoved = Integer.MAX_VALUE;
+//        int j = 0, count = 0;
+//
+//        for(int i = 0; j < sorted.length - count; i++){
+//            if(unsorted[i] != sorted[j] && unsorted[i] != lastMoved){
+//                lastMoved = sorted[j];
+//                count++;
+//                i--;
+//            }
+//
+//            j++;
+//        }
 
-        for(int i = 0; i < unsorted.length; i++){
-            sorted[i] = unsorted[i];
+        LinkedList<Integer> myStack = new LinkedList<Integer>();
+        int count = 0, i = 0;
+
+        if(unsorted.length >= 2 && unsorted[0] > unsorted[1]){
+            count++;
+            i = 1;
         }
 
-        Arrays.sort(sorted);
-
-        int lastMoved = Integer.MAX_VALUE;
-        int j = 0, count = 0;
-
-        for(int i = 0; j < sorted.length - count; i++){
-            if(unsorted[i] != sorted[j] && unsorted[i] != lastMoved){
-                lastMoved = sorted[j];
+        for( ; i < unsorted.length; i++){
+            if(!myStack.isEmpty() && myStack.peek() > unsorted[i]){
                 count++;
-                i--;
+            } else {
+                myStack.push(unsorted[i]);
             }
 
-            j++;
         }
 
         return count;
