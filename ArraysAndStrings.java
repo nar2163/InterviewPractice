@@ -50,9 +50,24 @@ public class ArraysAndStrings{
 //        int[] test = new int[10];
 //        System.out.println(test.length);
 
-        int[] unsortedNums = {11, 1, 1, 1, 3, 4, 2};
-        System.out.println(switchedNumbers(unsortedNums));
+//        int[] unsortedNums = {11, 1, 1, 1, 3, 4, 2};
+//        System.out.println(switchedNumbers(unsortedNums));
 
+        String sample = "A man, a plan, a canal: Panama";
+        sample = sample.toLowerCase();
+        char[] sampleArr = new char[sample.length()];
+        int index = 0;
+
+        for(int i = 0; i < sampleArr.length; i++){
+            if(sample.charAt(i) >= 'a' && sample.charAt(i) <= 'z'){
+                sampleArr[index++] = sample.charAt(i);
+            }
+            if(sample.charAt(i) >= '0' && sample.charAt(i) <= '9'){
+                sampleArr[index++] = sample.charAt(i);
+            }
+        }
+
+        System.out.println(Arrays.toString(sampleArr));
 
     }
 
