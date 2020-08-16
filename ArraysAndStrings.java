@@ -53,21 +53,122 @@ public class ArraysAndStrings{
 //        int[] unsortedNums = {11, 1, 1, 1, 3, 4, 2};
 //        System.out.println(switchedNumbers(unsortedNums));
 
-        String sample = "A man, a plan, a canal: Panama";
-        sample = sample.toLowerCase();
-        char[] sampleArr = new char[sample.length()];
-        int index = 0;
+//        String sample = "A man, a plan, a canal: Panama";
+//        sample = sample.toLowerCase();
+//        char[] sampleArr = new char[sample.length()];
+//        int index = 0;
+//
+//        for(int i = 0; i < sampleArr.length; i++){
+//            if(sample.charAt(i) >= 'a' && sample.charAt(i) <= 'z'){
+//                sampleArr[index++] = sample.charAt(i);
+//            }
+//            if(sample.charAt(i) >= '0' && sample.charAt(i) <= '9'){
+//                sampleArr[index++] = sample.charAt(i);
+//            }
+//        }
 
-        for(int i = 0; i < sampleArr.length; i++){
-            if(sample.charAt(i) >= 'a' && sample.charAt(i) <= 'z'){
-                sampleArr[index++] = sample.charAt(i);
-            }
-            if(sample.charAt(i) >= '0' && sample.charAt(i) <= '9'){
-                sampleArr[index++] = sample.charAt(i);
-            }
+//        String s = "b..s";
+//        int count = 0;
+//
+//        if(s.contains(".")) {
+//
+//            for(int i = 0; i < s.length(); i++){
+//                if(s.charAt(i) == '.'){
+//                    count++;
+//                }
+//            }
+//            System.out.println(count);
+//            String[] sampleArr = s.split("\\W");
+//
+//
+//            for (int i = 0; i < sampleArr.length; i++) {
+//                if (sampleArr[i] != null) {
+//                    s = sampleArr[i];
+//                }
+//            }
+//        }
+//
+//        System.out.println(s);
+
+//        int[][] test = {{1, 2}, {3, 4}, {5, 6}, {1, 7}, {1, 4}, {3, 1}};
+//        HashMap<Integer, HashSet<Integer>> testMap = new HashMap<>();
+//
+//        for(int[] x : test){
+//            HashSet<Integer> temp = new HashSet<Integer>();
+//            if(!testMap.containsKey(x[0])){
+//                temp.add(x[1]);
+//                testMap.put(x[0], temp);
+//            } else {
+//                temp = testMap.get(x[0]);
+//                temp.add(x[1]);
+//                testMap.put(x[0], temp);
+//            }
+//        }
+//
+//        for(Map.Entry<Integer, HashSet<Integer>> entry : testMap.entrySet()){
+//            System.out.print("Key: " + entry.getKey() + " Values: ");
+//            for(Integer x : entry.getValue()){
+//                System.out.print(x + " ");
+//            }
+//            System.out.println();
+//        }
+
+//        ArrayList<Integer> arrList = new ArrayList<>();
+//
+//        arrList.add(1);
+//        arrList.add(2);
+//
+//        for(int x : arrList){
+//            System.out.println(x);
+//        }
+//
+//        StringBuilder s = new StringBuilder();
+//        s.append("Hello My Name Is       ");
+//
+//        System.out.println(s.toString());
+//        s.insert(0, 'x');
+//        System.out.println(s);
+//        String s = new String();
+//        s = "super CAtman";
+//        s = s.toLowerCase();
+//        for(char c : s.toCharArray()){
+//            System.out.print(c);
+//        }
+//
+//        int x = 5;
+//
+//        String num = "12345";
+//        int numS = Integer.parseInt(num);
+//        System.out.println(numS + 1);
+//
+//        int[] arr = {9, 3, 6, 10, 27, 4};
+        int[][] arr2 = {{1,2},{3,4},{6,7},{4,5},{0, 1}};
+        Arrays.sort(arr2);
+
+        for(int i = 0; i < arr2.length; i++){
+            int[] curr = arr2[i];
+            System.out.println(Arrays.toString(arr2));
         }
+//        for(int row = 0; row < arr2.length; row++){
+//            for(int col = 0; col < arr2[row].length; col++){
+//                System.out.print(arr2[row][col]);
+//            }
+//            System.out.println();
+//        }
+//        Arrays.sort(arr);
+//        System.out.println(Arrays.binarySearch(arr, 3));
+//        System.out.println(Arrays.toString(arr));
 
-        System.out.println(Arrays.toString(sampleArr));
+//        if(curr.contains(anyWord) && curr.length() == word.length()){
+//            for(int i = 0; i < curr.length(); i++){
+//                if(curr.charAt(i) != word.charAt(i) && word.charAt(i) != '.'){
+//                    continue;
+//                }
+//                if(i == curr.length() - 1){
+//                    return true;
+//                }
+//            }
+//        }
 
     }
 
