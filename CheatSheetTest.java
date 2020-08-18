@@ -10,7 +10,31 @@ public class CheatSheetTest{
 
 //        queueTest();
 
-        stackTest();
+//        stackTest();
+
+        HashMap<Integer, Integer> setMap = new HashMap<>();
+
+        int[] arr = {1,2,3,4,5,6,7,8,9,1};
+
+        for(int i = 0; i < arr.length; i++){
+            setMap.put(i, arr[i]);
+        }
+
+        setMap.replace(0, 5);
+        setMap.replace(2, 3, 1000);
+        setMap.replace(3, 3, 2000);
+
+        for(Map.Entry<Integer, Integer> entry : setMap.entrySet()){
+            System.out.println(entry);
+        }
+
+
+
+//        for(Map.Entry<Integer, Set<Integer>> entry : setMap.entrySet()){
+//            System.out.println(entry.getKey());
+//            System.out.println(entry.getValue());
+//        }
+
 
     }
 
