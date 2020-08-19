@@ -12,21 +12,73 @@ public class CheatSheetTest{
 
 //        stackTest();
 
-        HashMap<Integer, Integer> setMap = new HashMap<>();
+//        HashMap<Integer, Integer> setMap = new HashMap<>();
+//
+//        int[] arr = {1,2,3,4,5,6,7,8,9,1};
+//
+//        for(int i = 0; i < arr.length; i++){
+//            setMap.put(i, arr[i]);
+//        }
+//
+//        setMap.replace(0, 5);
+//        setMap.replace(2, 3, 1000);
+//        setMap.replace(3, 3, 2000);
+//
+//        for(Map.Entry<Integer, Integer> entry : setMap.entrySet()){
+//            System.out.println(entry);
+//        }
 
-        int[] arr = {1,2,3,4,5,6,7,8,9,1};
+//        int[] num = {1,2,3,4};
+//        StringBuilder strBuild = new StringBuilder();
+//
+//        for(int i = 0; i < num.length; i++){
+//            strBuild.append(num[i]);
+//        }
+//
+//        System.out.println(strBuild.toString());
+//
+//        int sum = Integer.parseInt(strBuild.toString()) + 1;
+//        String sumStr = Integer.toString(sum);
+//
+//        System.out.println(sumStr.length());
+//
+//        int[] sumArr = new int[sumStr.length()];
+//
+//        for(int i = 0; i < sumArr.length; i++){
+//            sumArr[i] = sumStr.charAt(i);
+//        }
+//
+//        System.out.println(sumStr.charAt(0));
+//        System.out.println(Arrays.toString(sumArr));
+//
+//        HashSet<String> test = new HashSet<>();
+//
+//        test.add("Hello" + " " + "Mary");
+//        test.add("Hello Ted");
+//
+//        for(String s : test){
+//            System.out.println(s);
+//        }
+//
+//        System.out.println();
+//
+//        String[] setArr = test.toArray(new String[test.size()]);
+//
+//        System.out.println(setArr.length);
+//
+//        for(int i = 0; i < setArr.length; i++){
+//            System.out.println(setArr[i]);
+//        }
 
-        for(int i = 0; i < arr.length; i++){
-            setMap.put(i, arr[i]);
-        }
+       Stack<Integer> myStack = new Stack<Integer>();
+       int currVal = 0;
 
-        setMap.replace(0, 5);
-        setMap.replace(2, 3, 1000);
-        setMap.replace(3, 3, 2000);
+       for(int i = 0; i < 10; i++){
+           myStack.push(currVal++);
+       }
 
-        for(Map.Entry<Integer, Integer> entry : setMap.entrySet()){
-            System.out.println(entry);
-        }
+       System.out.println(myStack.size());
+
 
 
 
