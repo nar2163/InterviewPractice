@@ -4,7 +4,7 @@ public class CheatSheetTest{
 
     public static void main(String[] args){
 
-//        arrayListTest();
+        arrayListTest();
 //
 //        linkedListTest();
 
@@ -70,14 +70,41 @@ public class CheatSheetTest{
 //            System.out.println(setArr[i]);
 //        }
 
-       Stack<Integer> myStack = new Stack<Integer>();
-       int currVal = 0;
+//       Stack<Integer> myStack = new Stack<Integer>();
+//       int currVal = 0;
+//
+//       for(int i = 0; i < 10; i++){
+//           myStack.push(currVal++);
+//       }
+//
+//       System.out.println(myStack.size());
 
-       for(int i = 0; i < 10; i++){
-           myStack.push(currVal++);
-       }
+        int[][] arr = {{1,2}, {5,6}, {3,4}, {10,11}, {7,8}};
 
-       System.out.println(myStack.size());
+        Arrays.sort(arr, new Comparator<int[]>(){
+            public int compare(final int[] entry1, final int[] entry2){
+                if(entry1[0] > entry2[0]){
+                    return 1;
+                } else {
+                    return -1;
+                }
+            }
+        });
+
+        System.out.println(Arrays.toString(arr));
+
+        for(int i = 0; i < arr.length; i++){
+            for(int j = 0;  j < arr[i].length; j++){
+                System.out.print(arr[i][j]);
+                if(j == 0){
+                    System.out.print(",");
+                }
+            }
+            System.out.println();
+        }
+
+
+
 
 
 
