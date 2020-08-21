@@ -82,8 +82,8 @@ public class CheatSheetTest{
         int[][] arr = {{1,2}, {5,6}, {3,4}, {10,11}, {7,8}};
 
         Arrays.sort(arr, new Comparator<int[]>(){
-            public int compare(final int[] entry1, final int[] entry2){
-                if(entry1[0] > entry2[0]){
+            public int compare(final int[] a, final int[] b){
+                if(a[0] > b[0]){
                     return 1;
                 } else {
                     return -1;
