@@ -79,29 +79,49 @@ public class CheatSheetTest{
 //
 //       System.out.println(myStack.size());
 
-        int[][] arr = {{1,2}, {5,6}, {3,4}, {10,11}, {7,8}};
+//        int[][] arr = {{1,2}, {5,6}, {3,4}, {10,11}, {7,8}};
+//
+//        Arrays.sort(arr, new Comparator<int[]>(){
+//            @Override
+//            public int compare(final int[] a, final int[] b){
+//                if(a[0] > b[0]){
+//                    return 1;
+//                } else {
+//                    return -1;
+//                }
+//            }
+//        });
+//
+//        System.out.println(Arrays.toString(arr));
+//
+//        for(int i = 0; i < arr.length; i++){
+//            for(int j = 0;  j < arr[i].length; j++){
+//                System.out.print(arr[i][j]);
+//                if(j == 0){
+//                    System.out.print(",");
+//                }
+//            }
+//            System.out.println();
+//        }
 
-        Arrays.sort(arr, new Comparator<int[]>(){
-            public int compare(final int[] a, final int[] b){
-                if(a[0] > b[0]){
-                    return 1;
-                } else {
-                    return -1;
+        char[] test = "cake thief".toCharArray();
+
+        reverseEverything(test, 0, test.length - 1);
+
+        int startIndex = 0;
+
+        for(int i = 0; i < test.length; i++){
+            if(test[i] == ' ' || i == test.length - 1){
+                if(i == test.length - 1){
+                    i++;
                 }
+                reverseEverything(test, startIndex, i - 1);
+                startIndex = ++i;
             }
-        });
-
-        System.out.println(Arrays.toString(arr));
-
-        for(int i = 0; i < arr.length; i++){
-            for(int j = 0;  j < arr[i].length; j++){
-                System.out.print(arr[i][j]);
-                if(j == 0){
-                    System.out.print(",");
-                }
-            }
-            System.out.println();
         }
+
+        System.out.println(Arrays.toString(test));
+
 
 
 
@@ -115,6 +135,18 @@ public class CheatSheetTest{
 //        }
 
 
+    }
+
+    public static void reverseEverything(char[] message, int start, int end){
+
+        int endPointer = end;
+        int startPointer = start;
+
+        for( ; startPointer < endPointer; startPointer++){
+            char temp = message[startPointer];
+            message[startPointer] = message[endPointer];
+            message[endPointer--] = temp;
+        }
     }
 
     public static void arrayListTest(){
